@@ -1,0 +1,998 @@
+/*? ============================== Estilo Base ====================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(244, 244, 244);
+    line-height: 1.6;
+}
+
+/*? =============================== Nav ====================================== */
+
+nav {
+    background-color: rgb(51, 51, 51);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0;
+    width: auto;
+}
+
+.btn {
+    font-size: 17px;
+    background: transparent;
+    border: none;
+    padding: 1em 1.5em;
+    color: rgb(255, 237, 211);
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: rgb(0, 180, 80);
+    transition: width 0.3s;
+}
+
+.btn:hover {
+    color: rgb(0, 180, 80);
+}
+
+.btn:hover::after {
+    width: 100%;
+}
+
+/* Desactivar efectos hover en móviles */
+@media (max-width: 768px) {
+    .btn:hover {
+        color: rgb(255, 237, 211);
+    }
+    
+    .btn:hover::after {
+        width: 0;
+    }
+}
+
+.link-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/*! =============================== Página de Index ====================================== */
+
+.biografia-dax {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+    color: rgb(0, 0, 0);
+}
+
+.biografia-dax h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+/* Layout de dos columnas */
+.dos-columnas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.columna-imagen {
+    flex: 0 0 400px;
+}
+
+.imagen-izquierda {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.imagen-izquierda:hover {
+    transform: scale(1.02);
+}
+
+figcaption {
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(102, 102, 102);
+    font-style: italic;
+}
+
+.columna-texto {
+    flex: 1;
+    min-width: 300px;
+}
+
+.columna-texto p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.columna-texto strong {
+    color: rgb(0, 0, 0);
+}
+
+@media (max-width: 768px) {
+    .dos-columnas {
+        flex-direction: column;
+    }
+
+    .columna-imagen,
+    .columna-texto {
+        flex: 100%;
+    }
+
+    .columna-imagen {
+        margin-bottom: 20px;
+    }
+}
+
+/*! =============================== Página de Discografica ====================================== */
+
+.discografia-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.discografia-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2em;
+    color: rgb(102, 102, 102);
+}
+
+/* Embed de Spotify */
+.spotify-embed {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.spotify-embed iframe {
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Grid de álbumes */
+.albumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.album-card {
+    background: rgb(255, 255, 255);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.album-card h3 {
+    color: rgb(0, 180, 80);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.album-card p {
+    color: rgb(102, 102, 102);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .albumes-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .spotify-embed {
+        padding: 10px;
+    }
+
+    .discografia-intro {
+        font-size: 1.1em;
+        padding: 0 20px;
+    }
+}
+
+/*! =============================== Página de Galeria ====================================== */
+
+.galeria-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.galeria-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2em;
+    color: rgb(102, 102, 102);
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+    align-items: start;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.galeria-grid figure {
+    width: 220px;
+    height: 220px;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.galeria-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: none;
+    box-sizing: border-box;
+}
+
+.galeria-grid figure:hover {
+    transform: scale(1.35);
+    z-index: 2;
+}
+
+@media (max-width: 992px) {
+    .galeria-section {
+        max-width: 100%;
+    }
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 14px;
+        padding: 10px;
+    }
+    .galeria-grid figure, .galeria-grid img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 8px;
+    }
+    .galeria-grid figure, .galeria-grid img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/*! =============================== Página de Calendario ====================================== */
+.calendario-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.calendario-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.2em;
+    color: rgb(102, 102, 102);
+}
+
+/* Tabla de eventos */
+.table-container {
+    margin: 40px auto;
+    overflow-x: auto;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+thead {
+    background: linear-gradient(45deg, rgb(0, 180, 80), rgb(0, 180, 80));
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    color: rgb(51, 51, 51);
+    font-weight: 600;
+    border-bottom: 2px solid rgb(0, 180, 80);
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: #fff9e6;
+}
+
+/* Tarjetas de información */
+.calendario-info {
+    margin-top: 60px;
+    padding: 40px 0;
+}
+
+.calendario-info h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+    color: rgb(51, 51, 51);
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.info-card {
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card i {
+    font-size: 2.5em;
+    color: rgb(0, 180, 80);
+    margin-bottom: 20px;
+}
+
+.info-card h3 {
+    color: rgb(51, 51, 51);
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.info-card p {
+    color: rgb(102, 102, 102);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        margin: 20px 0;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+}
+
+/*! =============================== Página de Contacto ====================================== */
+
+.contacto-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.contacto-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.2em;
+    color: rgb(102, 102, 102);
+}
+
+/* Contenedor del formulario */
+.form-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 300px);
+    padding: 40px 0;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(145deg, rgb(255, 255, 255), #f5f5f5);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.form-container:hover {
+    transform: translateY(-5px);
+}
+
+.form-container h1 {
+    text-align: center;
+    color: rgb(51, 51, 51);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* Estilos del formulario */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: rgb(51, 51, 51);
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 2px solid rgb(225, 225, 225);
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgb(0, 180, 80);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 180, 80, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.form-submit-btn {
+    background: linear-gradient(45deg, rgb(0, 180, 80), rgb(0, 180, 80));
+    color: rgb(51, 51, 51);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.form-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 180, 80, 0.3);
+}
+
+.form-submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-submit-btn i {
+    font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 30px 20px;
+        margin: 0 20px;
+    }
+
+    .form-submit-btn {
+        padding: 12px 24px;
+    }
+}
+
+/** =============================== Footer ====================================== */
+
+footer {
+    background-color: rgb(51, 51, 51);
+    color: rgb(255, 255, 255);
+    padding: 40px 0;
+    margin-top: 60px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.social-link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.social-link i {
+    font-size: 1.5em;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+}
+
+.social-link.instagram:hover {
+    background-color: rgb(225, 48, 108);
+}
+
+.social-link.youtube:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.social-link.spotify:hover {
+    background-color: rgb(29, 185, 84);
+}
+
+/** =============================== Responsive ====================================== */
+
+@media (max-width: 480px) {
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-link {
+        width: 200px;
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .biografia-dax,
+    .discografia-section,
+    .calendario-section,
+    .contacto-section {
+        max-width: 95%;
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    .menu {
+        gap: 5px;
+    }
+
+    .menu li {
+        margin: 0 5px;
+    }
+
+    .btn {
+        font-size: 15px;
+        padding: 0.8em 1em;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+    .galeria-grid img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .social-links {
+        gap: 20px;
+    }
+
+    .social-link {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        padding: 5px 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .menu li {
+        margin: 0;
+        width: 100vw;
+        max-width: 100vw;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    .btn {
+        justify-content: center;
+        width: 100vw;
+        max-width: 100vw;
+        padding: 0.8em;
+        box-sizing: border-box;
+    }
+    main.content, .content, body {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .galeria-grid img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .galeria-grid img:hover {
+        transform: scale(1.2);
+    }
+
+    .table-container {
+        margin: 20px 0;
+        border-radius: 8px;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-container {
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+    .form-submit-btn {
+        width: 100%;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .social-link {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    nav {
+        padding: 5px 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    .menu {
+        padding: 0 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    .btn {
+        font-size: 14px;
+        padding: 0.7em;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    .menu li {
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    main.content, .content, body {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .link-icon {
+        font-size: 1.1em;
+    }
+
+    footer {
+        padding: 30px 0;
+    }
+
+    .footer-container {
+        padding: 0 15px;
+    }
+
+    .social-link {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .biografia-dax h1,
+    .discografia-info h2,
+    .calendario-info h2,
+    .form-container h1 {
+        font-size: 1.8em;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+
+    .galeria-grid img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .galeria-grid img:hover {
+        transform: scale(1.15);
+    }
+
+    .table-container {
+        margin: 10px 0;
+    }
+
+    table {
+        font-size: 0.8em;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .info-card {
+        padding: 20px;
+    }
+
+    .info-card i {
+        font-size: 2em;
+    }
+
+    .info-card h3 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 400px) {
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .galeria-grid img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .galeria-grid img:hover {
+        transform: scale(1.1);
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 0.6em;
+    }
+
+    .link-icon {
+        font-size: 1em;
+        margin-right: 5px;
+    }
+
+    .social-link {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}
+
+/* Ajustes para pantallas muy grandes */
+@media (min-width: 1400px) {
+    .biografia-dax,
+    .discografia-section,
+    .calendario-section,
+    .contacto-section {
+        max-width: 1300px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .galeria-grid img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .menu {
+        gap: 20px;
+    }
+
+    .menu li {
+        margin: 0 10px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 1.2em 2em;
+    }
+
+    .social-links {
+        gap: 40px;
+    }
+
+    .social-link {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+/* Ajustes específicos para dispositivos móviles en modo horizontal */
+@media (max-height: 500px) and (orientation: landscape) {
+    nav {
+        position: relative;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .menu li {
+        width: auto;
+        margin: 0 5px;
+    }
+
+    .btn {
+        width: auto;
+        padding: 0.5em 0.8em;
+    }
+
+    .social-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .social-link {
+        width: auto;
+        max-width: none;
+    }
+}
