@@ -71,6 +71,17 @@ nav {
     width: 100%;
 }
 
+/* Desactivar efectos hover en móviles */
+@media (max-width: 768px) {
+    .btn:hover {
+        color: rgb(255, 237, 211);
+    }
+    
+    .btn:hover::after {
+        width: 0;
+    }
+}
+
 .link-icon {
     margin-right: 10px;
     font-size: 1.2em;
@@ -694,26 +705,42 @@ footer {
 @media (max-width: 768px) {
     nav {
         padding: 5px 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
-
     .menu {
         flex-direction: column;
         align-items: center;
         gap: 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
-
     .menu li {
         margin: 0;
-        width: 100%;
+        width: 100vw;
+        max-width: 100vw;
         text-align: center;
+        box-sizing: border-box;
     }
-
     .btn {
         justify-content: center;
-        width: 100%;
+        width: 100vw;
+        max-width: 100vw;
         padding: 0.8em;
+        box-sizing: border-box;
     }
-
+    main.content, .content, body {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
     .galeria-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 15px;
@@ -771,17 +798,36 @@ footer {
 @media (max-width: 576px) {
     nav {
         padding: 5px 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
-
     .menu {
-        padding: 0 10px;
+        padding: 0 0;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
-
     .btn {
         font-size: 14px;
         padding: 0.7em;
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
     }
-
+    .menu li {
+        width: 100vw;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    main.content, .content, body {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
     .link-icon {
         font-size: 1.1em;
     }
