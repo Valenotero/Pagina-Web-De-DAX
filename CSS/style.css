@@ -8,7 +8,34 @@ body {
     line-height: 1.6;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /*? =============================== Nav ====================================== */
+.grid-contenedor-padre {
+    display: grid;
+    grid-template-areas:
+        "nav"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.grid-item-hijo.nav {
+    grid-area: nav;
+}
+
+.grid-item-hijo.main-content {
+    grid-area: main;
+}
+
+.grid-item-hijo.footer {
+    grid-area: footer;
+}
 
 nav {
     background-color: rgb(51, 51, 51);
@@ -76,7 +103,7 @@ nav {
     .btn:hover {
         color: rgb(255, 237, 211);
     }
-    
+
     .btn:hover::after {
         width: 0;
     }
@@ -120,7 +147,7 @@ nav {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
 
@@ -196,7 +223,7 @@ figcaption {
     max-width: 1000px;
     width: 100%;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
 }
 
 /* Grid de álbumes */
@@ -247,6 +274,7 @@ figcaption {
     }
 }
 
+
 /*! =============================== Página de Galeria ====================================== */
 
 .galeria-section {
@@ -283,7 +311,7 @@ figcaption {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: rgb(255, 255, 255);
     box-sizing: border-box;
@@ -307,15 +335,14 @@ figcaption {
 }
 
 @media (max-width: 992px) {
-    .galeria-section {
-        max-width: 100%;
-    }
     .galeria-grid {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 14px;
         padding: 10px;
     }
-    .galeria-grid figure, .galeria-grid img {
+
+    .galeria-grid figure,
+    .galeria-grid img {
         width: 180px;
         height: 180px;
     }
@@ -326,9 +353,35 @@ figcaption {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         gap: 8px;
     }
-    .galeria-grid figure, .galeria-grid img {
+
+    .galeria-grid figure,
+    .galeria-grid img {
         width: 120px;
         height: 120px;
+    }
+}
+
+@media (max-width: 400px) {
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .galeria-grid figure,
+    .galeria-grid img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .galeria-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .galeria-grid figure,
+    .galeria-grid img {
+        width: 250px;
+        height: 250px;
     }
 }
 
@@ -348,7 +401,7 @@ figcaption {
 }
 
 /* Tabla de eventos */
-.table-container {
+.table-responsive {
     margin: 40px auto;
     overflow-x: auto;
     background: rgb(255, 255, 255);
@@ -356,36 +409,54 @@ figcaption {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-table {
+.table {
     width: 100%;
     border-collapse: collapse;
     margin: 0;
     font-size: 1.1em;
 }
 
-thead {
+.table thead {
     background: linear-gradient(45deg, rgb(0, 180, 80), rgb(0, 180, 80));
 }
 
-th {
+.table th {
     padding: 15px;
     text-align: left;
-    color: rgb(51, 51, 51);
+    color: #fff;
     font-weight: 600;
     border-bottom: 2px solid rgb(0, 180, 80);
 }
 
-td {
+.table td {
     padding: 12px 15px;
     border-bottom: 1px solid rgb(238, 238, 238);
 }
 
-tbody tr {
+.table tbody tr {
     transition: background-color 0.3s ease;
 }
 
-tbody tr:hover {
+.table tbody tr:hover {
     background-color: #fff9e6;
+}
+
+/* Efecto hover amarillo claro en toda la fila */
+.table tbody tr:hover td {
+    background-color: #fff9e6 !important;
+    color: #000;
+}
+
+/* Primera fila de datos blanca por defecto, pero con hover igual que las demás, sin negrita */
+.table tbody tr:first-child td {
+    background-color: #fff !important;
+    color: #000 !important;
+    font-weight: normal;
+}
+
+.table tbody tr:first-child:hover td {
+    background-color: #fff9e6 !important;
+    color: #000 !important;
 }
 
 /* Tarjetas de información */
@@ -439,21 +510,63 @@ tbody tr:hover {
 }
 
 @media (max-width: 768px) {
-    .table-container {
+    .table-responsive {
         margin: 20px 0;
     }
 
-    table {
+    .table {
         font-size: 0.9em;
     }
 
-    th, td {
+    .table th,
+    .table td {
         padding: 10px;
     }
 
     .info-cards {
         grid-template-columns: 1fr;
         padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .table-responsive {
+        margin: 10px 0;
+    }
+
+    .table {
+        font-size: 0.8em;
+    }
+
+    .table th,
+    .table td {
+        padding: 6px;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .form-container {
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+    .form-submit-btn {
+        width: 100%;
+    }
+
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .social-link {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
     }
 }
 
@@ -652,7 +765,7 @@ footer {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .social-link {
         width: 200px;
         justify-content: center;
@@ -661,6 +774,7 @@ footer {
 
 
 @media (max-width: 1200px) {
+
     .biografia-dax,
     .discografia-section,
     .calendario-section,
@@ -703,12 +817,32 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .grid-contenedor-padre {
+        grid-template-areas:
+            "nav"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .galeria-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     nav {
         padding: 5px 0;
         width: 100vw;
         max-width: 100vw;
         box-sizing: border-box;
     }
+
     .menu {
         flex-direction: column;
         align-items: center;
@@ -719,6 +853,7 @@ footer {
         margin: 0;
         padding: 0;
     }
+
     .menu li {
         margin: 0;
         width: 100vw;
@@ -726,6 +861,7 @@ footer {
         text-align: center;
         box-sizing: border-box;
     }
+
     .btn {
         justify-content: center;
         width: 100vw;
@@ -733,7 +869,10 @@ footer {
         padding: 0.8em;
         box-sizing: border-box;
     }
-    main.content, .content, body {
+
+    main.content,
+    .content,
+    body {
         width: 100vw;
         max-width: 100vw;
         overflow-x: hidden;
@@ -741,6 +880,7 @@ footer {
         margin: 0;
         padding: 0;
     }
+
     .galeria-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 15px;
@@ -755,16 +895,17 @@ footer {
         transform: scale(1.2);
     }
 
-    .table-container {
+    .table-responsive {
         margin: 20px 0;
         border-radius: 8px;
     }
 
-    table {
+    .table {
         font-size: 0.9em;
     }
 
-    th, td {
+    .table th,
+    .table td {
         padding: 8px;
     }
 
@@ -802,12 +943,14 @@ footer {
         max-width: 100vw;
         box-sizing: border-box;
     }
+
     .menu {
         padding: 0 0;
         width: 100vw;
         max-width: 100vw;
         box-sizing: border-box;
     }
+
     .btn {
         font-size: 14px;
         padding: 0.7em;
@@ -815,12 +958,16 @@ footer {
         max-width: 100vw;
         box-sizing: border-box;
     }
+
     .menu li {
         width: 100vw;
         max-width: 100vw;
         box-sizing: border-box;
     }
-    main.content, .content, body {
+
+    main.content,
+    .content,
+    body {
         width: 100vw;
         max-width: 100vw;
         overflow-x: hidden;
@@ -828,6 +975,7 @@ footer {
         margin: 0;
         padding: 0;
     }
+
     .link-icon {
         font-size: 1.1em;
     }
@@ -866,15 +1014,16 @@ footer {
         transform: scale(1.15);
     }
 
-    .table-container {
+    .table-responsive {
         margin: 10px 0;
     }
 
-    table {
+    .table {
         font-size: 0.8em;
     }
 
-    th, td {
+    .table th,
+    .table td {
         padding: 6px;
     }
 
@@ -923,6 +1072,7 @@ footer {
 
 /* Ajustes para pantallas muy grandes */
 @media (min-width: 1400px) {
+
     .biografia-dax,
     .discografia-section,
     .calendario-section,
@@ -995,4 +1145,35 @@ footer {
         width: auto;
         max-width: none;
     }
+}
+
+@media (min-width: 992px) {
+    .grid-contenedor-padre {
+        grid-template-areas:
+            "nav nav"
+            "main aside"
+            "footer footer";
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .grid-item-hijo.main-content {
+        grid-area: main;
+    }
+
+    .grid-item-hijo.aside {
+        grid-area: aside;
+    }
+}
+
+nav .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.table thead tr th {
+    background-color: rgb(0, 180, 80) !important;
+    color: #fff !important;
 }
