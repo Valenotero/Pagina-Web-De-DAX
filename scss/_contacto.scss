@@ -1,0 +1,44 @@
+// Variables
+$color-principal: rgb(0, 180, 80);
+$color-oscuro: rgb(51, 51, 51);
+$color-claro: rgb(255, 237, 211);
+$color-fondo: rgb(244, 244, 244);
+$color-texto: rgb(102, 102, 102);
+
+// Mixin para centrar flex
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Clase base para extender
+%btn-base {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $color-fondo;
+  color: $color-texto;
+}
+
+.form-center-container {
+  @include flex-center;
+  min-height: 60vh;
+}
+
+.form-submit-btn {
+  @extend %btn-base;
+  background: $color-principal;
+  color: $color-oscuro;
+  margin-top: 10px;
+  transition: background 0.3s;
+  &:hover {
+    background: darken($color-principal, 10%);
+  }
+} 

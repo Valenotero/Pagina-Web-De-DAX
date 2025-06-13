@@ -1,0 +1,65 @@
+// Variables
+$color-principal: rgb(0, 180, 80);
+$color-oscuro: rgb(51, 51, 51);
+$color-claro: rgb(255, 237, 211);
+$color-fondo: rgb(244, 244, 244);
+$color-texto: rgb(102, 102, 102);
+
+// Mixin para centrar flex
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Clase base para extender
+%card-base {
+  background: $color-claro;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1.5em;
+  margin: 1em 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $color-fondo;
+  color: $color-texto;
+}
+
+.biografia-dax {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  line-height: 1.6;
+  color: black;
+}
+
+.dos-columnas {
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.columna-imagen {
+  flex: 0 0 400px;
+}
+
+.imagen-izquierda {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.imagen-izquierda:hover {
+  transform: scale(1.02);
+}
+
+.columna-texto {
+  flex: 1;
+  min-width: 300px;
+  @extend %card-base;
+} 

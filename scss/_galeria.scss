@@ -1,0 +1,41 @@
+// Variables
+$color-principal: rgb(0, 180, 80);
+$color-oscuro: rgb(51, 51, 51);
+$color-claro: rgb(255, 237, 211);
+$color-fondo: rgb(244, 244, 244);
+$color-texto: rgb(102, 102, 102);
+
+// Mixin para centrar grid
+@mixin grid-center {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+// Clase base para extender
+%img-base {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+galeria-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.galeria-grid {
+  @include grid-center;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.galeria-grid img {
+  @extend %img-base;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} 

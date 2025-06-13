@@ -716,6 +716,13 @@ footer {
     padding: 0 20px;
     width: 100%;
     box-sizing: border-box;
+    text-align: center;
+}
+
+.footer-container p {
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 1em;
 }
 
 .social-links {
@@ -1177,3 +1184,4 @@ nav .menu {
     background-color: rgb(0, 180, 80) !important;
     color: #fff !important;
 }
+/*# sourceMappingURL=style.css.map */

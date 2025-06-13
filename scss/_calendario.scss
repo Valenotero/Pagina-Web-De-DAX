@@ -1,0 +1,32 @@
+// Variables
+$color-principal: rgb(0, 180, 80);
+$color-oscuro: rgb(51, 51, 51);
+$color-claro: rgb(255, 237, 211);
+$color-fondo: rgb(244, 244, 244);
+$color-texto: rgb(102, 102, 102);
+
+// Mixin para centrar tabla
+@mixin table-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Clase base para extender
+%table-base {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1em;
+}
+
+.table-responsive {
+  @include table-center;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.table {
+  @extend %table-base;
+} 

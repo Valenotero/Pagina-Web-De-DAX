@@ -1,0 +1,12 @@
+{
+    "name": "proyecto-pagina-web",
+    "version": "1.0.0",
+    "description": "Proyecto de página web con SASS",
+    "scripts": {
+        "sass": "sass scss/style.scss:css/style.css --watch",
+        "sass:build": "sass scss/style.scss:css/style.css --style compressed"
+    },
+    "devDependencies": {
+        "sass": "^1.69.5"
+    }
+}
