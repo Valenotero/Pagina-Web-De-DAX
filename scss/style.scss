@@ -218,3 +218,26 @@ footer .social-link.spotify {
         padding: 0.6rem 0.7rem;
     }
 }
+
+.nombre-instagram {
+    color: #39ff14 !important;
+    font-weight: inherit !important;
+    text-decoration: none !important;
+    transition: color 0.3s, transform 0.3s;
+    
+    &:hover {
+        color: #00ff00 !important;
+        transform: scale(1.15);
+        text-decoration: none !important;
+    }
+    &:visited, &:active, &:focus {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+}
+
+footer .footer-container p .nombre-instagram:hover {
+    color: #00ff00 !important;
+    transform: scale(1.15);
+    text-decoration: none !important;
+}
