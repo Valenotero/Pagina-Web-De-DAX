@@ -7,6 +7,12 @@
 @use 'calendario';
 @use 'discografica';
 
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 // Estilos base
 body {
     font-family: Arial, sans-serif;
@@ -14,57 +20,40 @@ body {
     color: $color-texto;
     margin: 0;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 // HEADER (NAVBAR)
 header {
     background: $color-oscuro;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
+    top: unset;
+    left: unset;
+    right: unset;
+    width: 100%;
     z-index: 1000;
+    margin: 0;
+    padding-top: 0;
 
     nav {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 10px;
     }
 
     .menu {
         display: flex;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
-        gap: 2.5rem;
+        gap: 2rem;
         list-style: none;
         margin: 0;
         padding: 0;
-
-        .btn {
-            color: $color-claro;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.7rem 1.2rem;
-            border-radius: 6px;
-            transition: background 0.3s, color 0.3s, transform 0.2s;
-            position: relative;
-
-            &:hover,
-            &[aria-current='page'] {
-                background: color.adjust($color-principal, $lightness: -10%);
-                color: $color-oscuro;
-                transform: translateY(-2px) scale(1.05);
-            }
-
-            .link-icon {
-                font-size: 1.2rem;
-            }
-        }
+        flex-wrap: wrap;
+    }
+    .btn {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.2rem;
     }
 }
 
@@ -84,32 +73,32 @@ footer {
 
     .social-links {
         display: flex;
+        flex-direction: row;
         justify-content: center;
-        gap: 2.5rem;
-        margin-bottom: 1.5rem;
+        gap: 2rem;
         flex-wrap: wrap;
+    }
 
-        .social-link {
-            color: $color-claro;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: background 0.3s, color 0.3s, transform 0.2s;
+    .social-link {
+        color: $color-claro;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        transition: background 0.3s, color 0.3s, transform 0.2s;
 
-            i {
-                font-size: 1.2rem;
-            }
+        i {
+            font-size: 1.2rem;
+        }
 
-            &:hover {
-                background: color.adjust($color-principal, $lightness: -10%);
-                color: $color-oscuro;
-                transform: translateY(-2px) scale(1.05);
-            }
+        &:hover {
+            background: color.adjust($color-principal, $lightness: -10%);
+            color: $color-oscuro;
+            transform: translateY(-2px) scale(1.05);
         }
     }
 
@@ -195,5 +184,37 @@ footer .social-link.spotify {
             -webkit-text-fill-color: #fff;
             text-fill-color: #fff;
         }
+    }
+}
+
+// Solo en móviles pequeños (max-width: 500px) apilar en columna
+@media (max-width: 500px) {
+    header .menu {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.3rem;
+        width: 100%;
+    }
+    header .menu .btn {
+        width: 100%;
+        justify-content: flex-start;
+        font-size: 0.95rem;
+        padding: 0.6rem 0.7rem;
+    }
+    footer .footer-container {
+        padding: 0 5px;
+    }
+    footer .social-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.3rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    footer .social-link {
+        width: 100%;
+        justify-content: flex-start;
+        font-size: 0.95rem;
+        padding: 0.6rem 0.7rem;
     }
 }

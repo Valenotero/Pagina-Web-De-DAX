@@ -179,4 +179,22 @@
     z-index: 2;
     box-shadow: 0 12px 32px rgba(0,0,0,0.18);
   }
+}
+
+// Responsive calendario para móvil
+@media (max-width: 600px) {
+  .calendario-section {
+    padding: 20px 2px;
+    .table-responsive {
+      padding: 5px;
+    }
+    .table {
+      min-width: unset;
+      font-size: 0.95em;
+      th, td {
+        padding: 0.5rem;
+        font-size: 0.95em;
+      }
+    }
+  }
 } 
