@@ -1,7 +1,0 @@
-0000000000000000000000000000000000000000 8e686314535e4c586058e548ddb41156c9f2901b Valenotero <valotero@uade.edu.ar> 1746806813 -0300	commit (initial): Subida inicial de mi página web de DAX
-8e686314535e4c586058e548ddb41156c9f2901b 0000000000000000000000000000000000000000 Valenotero <valotero@uade.edu.ar> 1746806834 -0300	Branch: renamed refs/heads/master to refs/heads/main
-0000000000000000000000000000000000000000 8e686314535e4c586058e548ddb41156c9f2901b Valenotero <valotero@uade.edu.ar> 1746806834 -0300	Branch: renamed refs/heads/master to refs/heads/main
-8e686314535e4c586058e548ddb41156c9f2901b faa4b4d666315b093d7726b70e2d549791d82627 Valenotero <valotero@uade.edu.ar> 1749609769 -0300	commit: Commit
-faa4b4d666315b093d7726b70e2d549791d82627 eaa6f0e197c77e934ccf1a3f1f3075574c7458d8 Valenotero <valotero@uade.edu.ar> 1749611211 -0300	commit (merge): Merge branch 'main' of https://github.com/Valenotero/Pagina-Web-De-DAX
-eaa6f0e197c77e934ccf1a3f1f3075574c7458d8 34c5be8e9f3d235ff14c9438b505be1582128838 Valenotero <valotero@uade.edu.ar> 1749611658 -0300	commit: Proyecto arreglado
-34c5be8e9f3d235ff14c9438b505be1582128838 11884e467eb5a7d139b880a41368e43aa26046d0 Valenotero <valotero@uade.edu.ar> 1749784992 -0300	commit: Organización de SCSS por página, uso de variables, mixins y extends
