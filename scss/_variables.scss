@@ -1,0 +1,48 @@
+// Variables globales
+$color-principal: #00b450;
+$color-oscuro: #333333;
+$color-claro: #ffedd3;
+$color-fondo: #f4f4f4;
+$color-texto: #666666;
+$color-blanco: #ffffff;
+$color-negro: #000000;
+
+// Mixins globales
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin grid-center {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+// Placeholders globales
+%card-base {
+  background: $color-claro;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 1.5em;
+  margin: 1em 0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+%img-base {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+} 

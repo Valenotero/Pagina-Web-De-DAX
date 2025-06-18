@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactame</title>
+    <meta name="description" content="Formulario de contacto para comunicarte con DAX. Envía tus consultas, comentarios o propuestas y recibe respuesta directa del equipo de Dax.">
+    <meta name="keywords" content="Dax, contacto, formulario, mensaje, artista, música, rap, hip hop">
+    <meta name="author" content="Valentin Otero">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Contacto - DAX" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://proyectodax.netlify.app/pages/contacto.html" />
+    <meta property="og:image" content="https://proyectodax.netlify.app/IMG/DAX-Rap-God.jpg" />
+    <meta property="og:description" content="Formulario de contacto para comunicarte con DAX. Envía tus consultas, comentarios o propuestas y recibe respuesta directa del equipo de Dax." />
+    <meta property="og:site_name" content="DAX - Sitio Para un Proyecto" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../IMG/DAX-Rap-God.jpg" type="image/jpeg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <header role="banner">
+        <nav role="navigation" aria-label="Menú principal">
+            <ul class="menu">
+                <li>
+                    <a class="btn" href="../index.html">
+                        <span class="link-icon" aria-hidden="true">🏠</span>
+                        <span class="link-title">Inicio</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn" href="./calendario.html">
+                        <span class="link-icon" aria-hidden="true">🗓️</span>
+                        <span class="link-title">Calendario</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn" href="./galeria.html">
+                        <span class="link-icon" aria-hidden="true">🖼️</span>
+                        <span class="link-title">Galería</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn" href="./discografica.html">
+                        <span class="link-icon" aria-hidden="true">🎸</span>
+                        <span class="link-title">Discográfica</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="btn" href="./contacto.html" aria-current="page">
+                        <span class="link-icon" aria-hidden="true">✉️</span>
+                        <span class="link-title">Contacto</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <div class="form-center-container">
+            <div class="form-container">
+                <h1>Como podemos ayudarte?</h1>
+                <form class="form" aria-label="Formulario de contacto para enviar un mensaje a DAX">
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" required
+                            aria-label="Campo para ingresar tu correo electrónico">
+                    </div>
+                    <div class="form-group">
+                        <label for="textarea">¿Con qué te ayudamos?</label>
+                        <textarea name="textarea" id="textarea" rows="10" cols="50" required
+                            aria-label="Campo para escribir tu mensaje o consulta"></textarea>
+                    </div>
+                    <button class="form-submit-btn" type="submit" aria-label="Enviar mensaje">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-container">
+            <nav class="social-links" aria-label="Redes sociales">
+                <a href="https://www.instagram.com/thatsdax/" target="_blank" rel="noopener noreferrer"
+                    class="social-link instagram" alt="Enlace externo al Instagram oficial de DAX">
+                    <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+                </a>
+                <a href="https://www.youtube.com/@Thatsdax" target="_blank" rel="noopener noreferrer"
+                    class="social-link youtube" alt="Enlace externo al canal de YouTube de DAX">
+                    <i class="fab fa-youtube" aria-hidden="true"></i> YouTube
+                </a>
+                <a href="https://open.spotify.com/intl-es/artist/5icKdCmMhNMYoAzVBAWt39?si=tfSgJj96ROKShAUl1kWKbA"
+                    target="_blank" rel="noopener noreferrer" class="social-link spotify"
+                    alt="Enlace externo al perfil de Spotify de DAX">
+                    <i class="fab fa-spotify" aria-hidden="true"></i> Spotify
+                </a>
+            </nav>
+            <p>© 2025 Valentin Otero Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>

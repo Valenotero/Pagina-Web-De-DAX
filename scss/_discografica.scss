@@ -1,0 +1,117 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+.discografica-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .titulo-principal {
+    text-align: center;
+    color: $color-oscuro;
+    margin-bottom: 2rem;
+  }
+
+  .discografia-grid-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    justify-items: center;
+    align-items: stretch;
+    margin-bottom: 2.5rem;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .discografia-intro, .spotify-embed {
+    background: $color-claro;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      transform: translateY(-5px) scale(1.04);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+      background: color.adjust($color-claro, $lightness: 5%);
+    }
+  }
+
+  .albumes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    align-items: stretch;
+    margin: 2.5rem auto 0 auto;
+    max-width: 1200px;
+  }
+
+  @media (max-width: 900px) {
+    .albumes-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .album-card {
+    background: $color-claro;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    padding: 2.2rem 1.7rem;
+    text-align: center;
+    width: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+    transition: transform 0.3s, box-shadow 0.3s, z-index 0.3s, background 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+
+    h3 {
+      margin-bottom: 1rem;
+      color: $color-oscuro;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      color: $color-texto;
+      font-size: 1.08rem;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    &:hover {
+      transform: scale(1.08);
+      z-index: 2;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      background: color.adjust($color-claro, $lightness: 5%);
+    }
+  }
+
+  .albumes-grid:hover .album-card {
+    transform: scale(0.95);
+    z-index: 1;
+  }
+
+  .albumes-grid .album-card:hover {
+    transform: scale(1.08);
+    z-index: 2;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  }
+} 

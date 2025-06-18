@@ -1,0 +1,139 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+// Variables
+$color-principal: rgb(0, 180, 80);
+$color-oscuro: rgb(51, 51, 51);
+$color-claro: rgb(255, 237, 211);
+$color-fondo: rgb(244, 244, 244);
+$color-texto: rgb(102, 102, 102);
+
+// Mixin para centrar flex
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Clase base para extender
+%btn-base {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: $color-fondo;
+  color: $color-texto;
+}
+
+.contacto-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.form-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.form-container {
+  background: $color-claro;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    color: $color-oscuro;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    color: $color-oscuro;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  input,
+  textarea {
+    padding: 0.9rem 1rem;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: $color-blanco;
+    color: $color-oscuro;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    resize: none;
+
+    &:focus {
+      outline: none;
+      border-color: $color-principal;
+      box-shadow: 0 0 0 2px rgba($color-principal, 0.15);
+    }
+  }
+
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+}
+
+.form-submit-btn {
+  background: $color-principal;
+  color: $color-blanco;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 0.5rem;
+  transition: background 0.3s, transform 0.2s;
+
+  &:hover {
+    background: color.adjust($color-principal, $lightness: -10%);
+    transform: translateY(-2px) scale(1.04);
+  }
+}
+
+.contacto-info {
+  margin-top: 3rem;
+  text-align: center;
+
+  h3 {
+    color: $color-oscuro;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $color-texto;
+    margin-bottom: 0.5rem;
+  }
+} 
